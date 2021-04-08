@@ -46,5 +46,9 @@
     {
         "title": "12-circles",
         "sketch": "12-circles.js"
+    }, 
+    {
+        "title": "13-circles",
+        "sketch": "13-circles.js"
     }    
 ]

@@ -1,0 +1,45 @@
+:root {
+	--btn: #3a0ca3;
+  }
+  
+body, html {
+	font-family: Hack, monospace;
+	margin: 0;
+	padding: 0;
+}
+
+body.index-list {
+	padding: 50px;
+}
+  
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+  
+ul li {
+	margin-bottom: 1rem;
+}
+  
+.btn, button {
+	background: var(--btn);
+	color: white;
+	border-radius: 0;
+	font-size: 16px;
+	line-height: 28px;
+	padding: 0 20px;
+	border: 0;
+	margin: 10px;
+	cursor: pointer;
+	border: 1px solid var(--btn);
+	transition: all 200ms linear;
+	text-transform: lowercase;
+	font-family: Hack, monospace;
+}
+  
+.btn:hover, button:hover, .btn:focus, button:focus {
+	background: white;
+	border: 1px solid var(--btn);
+	color: var(--btn);
+}
