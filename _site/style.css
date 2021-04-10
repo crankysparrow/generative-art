@@ -11,6 +11,10 @@ body, html {
 body.index-list {
 	padding: 50px;
 }
+
+main {
+	line-height: 0;
+}
   
 ul {
 	list-style: none;

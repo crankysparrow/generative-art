@@ -33,7 +33,8 @@
     },
     {
         "title": "09-spirograph",
-        "sketch": "09-spirograph.js"
+        "sketch": "09-spirograph.js",
+        "datgui": true
     },
     {
         "title": "10-boxlines-animate",
@@ -50,5 +51,9 @@
     {
         "title": "13-circles",
         "sketch": "13-circles.js"
+    },
+    {
+        "title": "14-squares",
+        "sketch": "14-squares.js"
     }    
 ]

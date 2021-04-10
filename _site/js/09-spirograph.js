@@ -14,9 +14,9 @@ function setupSpirograph() {
   centerX = width / 2;
   centerY = height / 2;   
   
-  noStroke();
-  fill('#f28f3b');
-  circle(centerX, centerY, base_r);
+  // noStroke();
+  // fill('#f28f3b');
+  // circle(centerX, centerY, base_r);
 
   inner_r = base_r * innerCircle.innerCircleRatio;
   outer_r = base_r * outerCircle.outerCircleRatio; 
@@ -78,9 +78,9 @@ function resetSpirograph() {
   noStroke();
   fill(255);
   rect(0, 0, width, height);
-  fill('#f28f3b');
-  circle(centerX, centerY, base_r);
-  noFill();
+  // fill('#f28f3b');
+  // circle(centerX, centerY, base_r);
+  // noFill();
 }
 
 function InnerCircle() {
