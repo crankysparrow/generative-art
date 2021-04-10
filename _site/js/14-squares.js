@@ -6,6 +6,10 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     noLoop();
 
+  saveBtn = createButton('save');
+  saveBtn.mousePressed(saveCanvas);
+
+
   COL2 = color('#073861');
   COL1 = color('#89fdbb');
   colorMode(HSB);
