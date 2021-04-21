@@ -24,7 +24,7 @@ function draw() {
   let h = hue(COL2);
   let s = saturation(COL2);
   let b = brightness(COL2);
-  let newCol = color(h, s, b - 20);
+  let newCol = color(h, s, b - 10);
   background(newCol);
   rectMode(CENTER);
   angleMode(DEGREES);
@@ -55,4 +55,9 @@ function draw() {
     pop();
   }
 
+}
+
+
+function easeInSine(x) {
+  return 1 - cos((x * PI) / 2);
 }
