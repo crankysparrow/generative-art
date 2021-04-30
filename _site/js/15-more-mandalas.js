@@ -1,9 +1,11 @@
 const PALETTE = ['#177e89', '#084c61', '#db3a34', '#ffc857', '#323031'];
 const PALETTE_LIGHT = ['#4dd2e1', '#23beed', '#ea8a87', '#ffde9c'];
 
+let currentColor;
+
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight);
-	angleMode(DEGREES);
+	angleMode(DEGREES)
 	saveBtn = createButton('save');
 	saveBtn.mousePressed(saveCanvas);
 
@@ -30,12 +32,26 @@ function draw() {
 
 	translate(m / 2, m / 2);
 	colorMode(HSL);
-	let col = PALETTE_LIGHT[floor(random(0, PALETTE_LIGHT.length))];
+	currentColor = PALETTE[2];
 	
-	justACircle(size / 1.5);
-	justACircle(size / 2, col);
-	triangles(sides, size / 2, 30, 1.1);
-	triangles(sides, size/4.2, 80, 1.2);
+	// justACircle(size / 1.4);
+	triangles(sides , size / 3, 140, 100);
+	rotate(angle/2);
+	blendMode(EXCLUSION)
+	currentColor = PALETTE[4];
+	triangles(sides , size * 0.28, 200, 140);
+	blendMode(BLEND);
+
+	currentColor = PALETTE_LIGHT[floor(random(0, PALETTE_LIGHT.length))];
+	justACircle(size * 0.45, currentColor);
+
+	currentColor = PALETTE[floor(random(0, PALETTE.length))];
+	triangles(sides, size / 2, 30, 50);
+	currentColor = PALETTE[floor(random(0, PALETTE.length))];
+	triangles(sides, size/7, 70, 120);
+
+	// dots(angle, sides, 27, 205, 8)
+
 	
 	// arcs(size * 0.7, 5);
 
@@ -203,15 +219,16 @@ function bumps(sides, r, curveSize) {
 	pop();
 }
 
-function triangles(sides, radius, width = 5, heightRatio = 1.5) {
+function triangles(sides, radius, width = 5, height = 20) {
+	let width2 = width / 2;
 	let angle = 360 / sides;
-	let col = PALETTE[floor(random(0, PALETTE.length))];
+	// let col = PALETTE[floor(random(0, PALETTE.length))];
 	noStroke();
-	fill(col);
+	fill(currentColor);
 	push();
 	for (let i = 1; i <= sides; i++) {
 		rotate(angle);
-		triangle(-width, radius, width, radius, 0, radius * heightRatio);
+		triangle(-width2, radius, width2, radius, 0, radius + height);
 	}
 	pop();
 }
@@ -234,7 +251,7 @@ function circles(angle, sides, outerSize, innerSize, fillColor = false) {
 	pop();
 }
 
-function dots(angle, sides, space, n = 4, size = 10) {
+function dots(angle, sides, space, start = 100, n = 4, size = 10) {
 	noStroke();
 	let col = PALETTE[floor(random(0, PALETTE.length))];
 	fill(col);
@@ -243,10 +260,11 @@ function dots(angle, sides, space, n = 4, size = 10) {
 	rotate(angle);
 	for (let i = 0; i < sides; i++) {
 		push();
-		for (let j = 0; j < n; j++) {
-			translate(0, space);
-			circle(0, 0, size);
-		}
+			translate(0, start);
+			for (let j = 0; j < n; j++) {
+				circle(0, 0, size);
+				translate(0, space);
+			}
 		pop();
 		rotate(angle);
 	}
