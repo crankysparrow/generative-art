@@ -67,5 +67,10 @@
 	{
 		"title": "17-initial-particles-attempt",
 		"sketch": "17-initial-particles-attempt.js"
+	},
+	{
+		"title": "18-perlin-flow-field",
+		"sketch": "18-perlin-flow-field.js",
+		"datgui": true
 	}
 ]
