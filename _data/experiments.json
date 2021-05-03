@@ -59,5 +59,13 @@
 	{
 		"title": "15-more-mandalas",
 		"sketch": "15-more-mandalas.js"
+	},
+	{
+		"title": "16-noise",
+		"sketch": "16-noise.js"
+	},
+	{
+		"title": "17-initial-particles-attempt",
+		"sketch": "17-initial-particles-attempt.js"
 	}
 ]
