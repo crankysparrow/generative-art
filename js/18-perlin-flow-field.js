@@ -35,6 +35,10 @@ function FlowField() {
 			}
 		}
 	}
+
+	this.clear = function () {
+		background(0)
+	}
 }
 
 function setup() {
@@ -44,16 +48,11 @@ function setup() {
 	flowfield = new FlowField()
 	flowfield.updateField()
 
-	let gui = new dat.GUI()
+	let gui = new dat.GUI({ name: 'flow field' })
 	gui.add(flowfield, 'magnitude', 0, 10)
 	gui.add(flowfield, 'inc', 0, 1)
 	gui.add(flowfield, 'circleMultiplier', 1, 100)
-	buttonObj = {
-		clear: function () {
-			background(0)
-		},
-	}
-	gui.add(buttonObj, 'clear')
+	gui.add(flowfield, 'clear')
 
 	background(0)
 

@@ -72,5 +72,13 @@
 		"title": "18-perlin-flow-field",
 		"sketch": "18-perlin-flow-field.js",
 		"datgui": true
+	},
+	{
+		"title": "19-maurer-rose",
+		"sketch": "19-maurer-rose.js"
+	},
+	{
+		"title": "20-atan",
+		"sketch": "20-atan.js"
 	}
 ]
