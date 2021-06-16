@@ -80,5 +80,9 @@
 	{
 		"title": "20-atan",
 		"sketch": "20-atan.js"
+	},
+	{
+		"title": "21-squares",
+		"sketch": "21-squares.js"
 	}
 ]
