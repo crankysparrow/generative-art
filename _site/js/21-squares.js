@@ -5,6 +5,9 @@ palette = [ '#ce1212' ]
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight)
     noLoop()
+
+    saveBtn = createButton('save')
+    saveBtn.mousePressed(saveCanvas)
 }
 
 function windowResized() {
