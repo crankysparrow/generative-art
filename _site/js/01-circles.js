@@ -1,52 +1,110 @@
 // feb 2021
+let circles
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    loc = createVector(10, 10);
-    vel = createVector(0, 0);
-    noiseGen = createVector(0, 0);
-    noiseStep = createVector(0.01, 0.03);
-    noiseScale = 0.2;
-    xPos = true;
-    yPos = true;
     
-    circles = [];
-    for (let i = 0; i < 10; i++) {
-      circles.push(new Circle(i));
-    }
+    circles = new Circles()
+    circles.makeCircles()
+
+    let gui = new dat.GUI({ name: 'bouncy circle particles' })
+    gui.add(circles, 'upperLimitVelocity', 0, 100)
+    let numController = gui.add(circles, 'numberOfCircles', 0, 500, 1)
+    let noiseScaleController = gui.add(circles, 'noiseScale', 0, 1, 0.01)
+    gui.add(circles, 'circleSize', 1, 100)
+
+    numController.onChange(() => {
+      circles.redoCircles()
+    })
+
+    // frameRate(1)
   }
   
-  // On window resize, update the canvas size
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-  
   }
   
   
   // Render loop that draws shapes with p5
   function draw() {
-  
     background(255); 
-    
     stroke(0);
     fill(0);
     
-    noiseGen.add(noiseStep);
-    
-    circles.forEach((circle) => {
-      circle.update();
-    });
-  
+    circles.updateCircles()
   }
   
+  class Circles {
+    constructor() {
+      this.upperLimitVelocity = 10
+      this.numberOfCircles = 100
+      this.noiseScale = 0.2
+      this.circleSize = 30
+      this.items = []
+    }
+
+    redoCircles() {
+      this.items = []
+      this.makeCircles()
+    }
+
+    makeCircles() {
+      for (let i = 0; i < this.numberOfCircles; i++) {
+        let n = i * random()
+        let vel = createVector(0,0)
+        let xPos = true
+        let yPos = true
+        let loc = createVector(random(width), random(height))
+        let currentCircle = {
+          vel, xPos, yPos, loc
+        }
+        this.items.push(currentCircle)
+      }
+    }
+
+    updateCircles() {
+      this.items.forEach((item, i) => {
+        ellipse(item.loc.x, item.loc.y, this.circleSize, this.circleSize)
+
+        let noiseGen = createVector(0.1 * i, 0.3 * i)
+        let acceleratorX = noise(noiseGen.x) * this.noiseScale - (this.noiseScale / 2)
+        let acceleratorY = noise(noiseGen.y) * this.noiseScale - (this.noiseScale / 2)
+        let accelerator = createVector(acceleratorX, acceleratorY)
+
+        item.vel.add(accelerator)
+        item.vel.limit(this.upperLimitVelocity)
+
+        if (item.xPos) {
+          item.loc.x += item.vel.x
+        } else {
+          item.loc.x -= item.vel.x
+        }
+
+        if (item.yPos) {
+          item.loc.y += item.vel.y
+        } else {
+          item.loc.y -= item.vel.y
+        }
+
+        if (item.loc.x > width || item.loc.x < 0) {
+          item.xPos = !item.xPos
+        }
+
+        if (item.loc.y > height || item.loc.y < 0) {
+          item.yPos = !item.yPos
+        }
+      })
+    }
+  }
   
+  // old single circle constructor, not using this one
   class Circle {
     constructor(n) {
       this.n = n * random();
       this.vel = createVector(0, 0);
       this.xPos = true;
       this.yPos = true;
-      this.loc = createVector(10, 10);
+      this.loc = createVector(random(width), random(height));
       this.noiseGen = createVector(0.1 * n, 0.3 * n);
     }
     
