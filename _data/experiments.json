@@ -1,7 +1,8 @@
 [
 	{
 		"title": "01-circles",
-		"sketch": "01-circles.js"
+		"sketch": "01-circles.js",
+		"datgui": true
 	},
 	{
 		"title": "02-mondrian",
