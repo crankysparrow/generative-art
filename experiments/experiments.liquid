@@ -19,6 +19,8 @@ permalink: "experiments/{{ experiment.title | slug }}/index.html"
 </head>
 <body>
 
+    <a class="back btn" href="/">back</button>
+
     {% if experiment.datgui %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.0-0/dat.gui.min.js"></script>
     {% endif %}

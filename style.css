@@ -29,6 +29,7 @@ ul li {
 
 .btn,
 button {
+	text-decoration: none;
 	background: var(--btn);
 	color: white;
 	border-radius: 0;
@@ -51,4 +52,23 @@ button:focus {
 	background: white;
 	border: 1px solid var(--btn);
 	color: var(--btn);
+}
+
+.btn.back {
+	background-color: black;
+	border: 2px solid white;
+	mix-blend-mode: exclusion;
+	position: absolute;
+	bottom: 1rem;
+	left: 0.5rem;
+	line-height: 30px;
+	padding: 0 30px;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.btn.back:hover, .btn.back:focus {
+	background-color: white;
+	color: black;
+	border: 2px solid black;
 }

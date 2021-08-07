@@ -1,7 +1,7 @@
 [
 	{
-		"title": "01-circles",
-		"sketch": "01-circles.js",
+		"title": "01-circle-particle-bounce",
+		"sketch": "01-circle-particle-bounce.js",
 		"datgui": true
 	},
 	{

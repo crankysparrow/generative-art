@@ -8,6 +8,7 @@ function setup() {
     circles.makeCircles()
 
     let gui = new dat.GUI({ name: 'bouncy circle particles' })
+    gui.width = 300
     gui.add(circles, 'upperLimitVelocity', 0, 100)
     let numController = gui.add(circles, 'numberOfCircles', 0, 500, 1)
     let noiseScaleController = gui.add(circles, 'noiseScale', 0, 1, 0.01)
@@ -16,8 +17,6 @@ function setup() {
     numController.onChange(() => {
       circles.redoCircles()
     })
-
-    // frameRate(1)
   }
   
   function windowResized() {

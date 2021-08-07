@@ -9,8 +9,7 @@ function setup() {
     middle = new Circle(100, 0.4, 10, '#1D1128', OVERLAY);
     
   }
-  
-  // On window resize, update the canvas size
+
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
   }
