@@ -4,15 +4,36 @@
 const STEP = 30;
 const VARIANCE_FACTOR = 85;
 const NOISE_STEP = 1;
+
 const tones = [
-  [[65, 75], [60, 100], [50, 100]],
-  [[50, 58], [70, 90], [80, 100]]
-];
+  [
+    [[82,90], [40, 80], [10, 50]],
+    [[92,100], [80,95], [70,98]]
+  ],
+  [
+    [[40, 48], [90, 100], [30, 60]],
+    [[19, 26], [60, 70], [70,80]]
+  ],
+  [
+    [[65, 75], [60, 100], [50, 100]],
+    [[50, 58], [70, 90], [80, 100]]
+  ]
+]
+
+let squiggles
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
 
   colorMode(HSB, 100)
+
+  squiggles = new Squiggles()
+  let gui = new dat.GUI()
+  gui.add(squiggles, 'stepX', 1, 100, 1)
+  gui.add(squiggles, 'stepY', 1, 100, 1)
+  gui.add(squiggles, 'varianceFactor', 1, 200, 1)
+  gui.add(squiggles, 'exponent', 1, 10, 0.5)
+  gui.add(squiggles, 'palette', [ '0', '1', '2' ])
 
   let div = createDiv('inspiration: <a href="https://levelup.gitconnected.com/generative-art-3-fundamental-concepts-to-get-you-started-44205dae167b" target="_blank">3 fundamental generative art concepts</a>')
   div.position(10, 20)
@@ -23,10 +44,6 @@ function setup(){
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-}
-
-function mouseClicked() {
-  redraw()
 }
 
 function randomColor(tones) {
@@ -42,15 +59,12 @@ class Squiggles {
     this.varianceFactor = 75 // controls the max possible height of the squiggles at their most squiggly
     this.exponent = 2 // controls how how much the squiggles flatten out on each end
 
+    this.palette = 2
     this.lines = []
     this.squiggleWidth = min(width * 0.8, 800)
 
     this.xStart = 0
     this.xEnd = width
-
-    this.calculateStartEndX()
-    this.makeLines()
-    this.drawLines()
   }
 
   calculateStartEndX() {
@@ -63,7 +77,8 @@ class Squiggles {
   }
 
   makeLines() {
-    for (let i = this.varianceFactor + 20; i < height - 20; i += this.stepY ) {
+    this.lines = []
+    for (let i = this.varianceFactor + 10; i < height - 20; i += this.stepY ) {
       this.lines.push(this.makeSingleLine(i))
     }
   }
@@ -84,8 +99,14 @@ class Squiggles {
   }
 
   drawLines() {
+
+    let bg = color(random(tones[this.palette][0][0][0], tones[this.palette][0][0][1]), 10, 100)
+    fill(bg);
+    noStroke()
+    rect(0, 0, width, height)
+  
     this.lines.forEach((line, i) => {
-      let c = randomColor(tones)
+      let c = randomColor(tones[this.palette])
       fill(c)
       stroke(c)
 
@@ -101,11 +122,12 @@ class Squiggles {
 }
 
 function draw() {
-  background(random(65, 75), 10, 100);
-
-  noFill()
   strokeWeight(3)
-  let squiggles = new Squiggles()
-
+  squiggles.calculateStartEndX()
+  squiggles.makeLines()
+  squiggles.drawLines()
 }
 
+function mouseClicked() {
+  redraw()
+}
