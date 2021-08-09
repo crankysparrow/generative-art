@@ -6,8 +6,14 @@ function setup() {
 	createCanvas(window.innerWidth, window.innerHeight)
     noLoop()
 
-    saveBtn = createButton('save')
-    saveBtn.mousePressed(saveCanvas)
+    // saveBtn = createButton('save')
+    // saveBtn.mousePressed(saveCanvas)
+
+    let inspiration = createDiv(`
+        inspiration: <a href="http://www.veramolnar.com/blog/wp-content/uploads/1999/10/197451" target="_blank">Vera Molnar</a>
+    `)
+    inspiration.position(50, height + 60)
+    inspiration.style('padding-bottom', '50px')
 }
 
 function windowResized() {
@@ -19,7 +25,7 @@ function draw() {
     strokeWeight(1)
 
     let size = 250
-    let step = 8
+    let step = 10
     let m = min(width, height) * 0.95
 
     let cols = floor(m / size)

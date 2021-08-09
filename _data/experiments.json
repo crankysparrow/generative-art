@@ -3,7 +3,7 @@
 		"title": "01-circle-particle-bounce",
 		"sketch": "01-circle-particle-bounce.js",
 		"datgui": true
-	},
+	},   
 	{
 		"title": "02-mondrian",
 		"sketch": "02-mondrian.js"
@@ -11,24 +11,25 @@
 	{
 		"title": "03-bubbles",
 		"sketch": "03-bubbles.js"
-	},
+	},	
 	{
 		"title": "04-squiggles",
 		"sketch": "04-squiggles.js",
-		"datgui": true
+		"datgui": true,
+		"fav": true
 	},
 	{
 		"title": "05-triangles",
 		"sketch": "05-triangles.js"
-	},
+	},	
 	{
 		"title": "06-bubblycreatures",
 		"sketch": "06-bubblycreatures.js"
-	},
+	},	
 	{
 		"title": "07-floaty-sine-waves",
 		"sketch": "07-floaty-sine-waves.js"
-	},
+	},   	
 	{
 		"title": "08-recursive-irregular-triangles",
 		"sketch": "08-recursive-irregular-triangles.js",
@@ -43,30 +44,32 @@
 		"title": "10-boxlines-animate",
 		"sketch": "10-boxlines-animate.js"
 	},
+    {
+        "title": "11-boxlines",
+        "sketch": "11-boxlines.js"
+    },	
+    {
+		"title": "12-swoosh",
+		"sketch": "12-swoosh.js"
+	},	
 	{
-		"title": "11-boxlines",
-		"sketch": "11-boxlines.js"
+		"title": "13-mandalas",
+		"sketch": "13-mandalas.js",
+		"fav": true
 	},
 	{
-		"title": "12-circles",
-		"sketch": "12-circles.js"
-	},
-	{
-		"title": "13-circles",
-		"sketch": "13-circles.js"
-	},
-	{
-		"title": "14-squares",
-		"sketch": "14-squares.js"
+		"title": "14-disarray",
+		"sketch": "14-disarray.js",
+		"fav": true
 	},
 	{
 		"title": "15-more-mandalas",
 		"sketch": "15-more-mandalas.js"
 	},
-	{
+    {
 		"title": "16-noise",
 		"sketch": "16-noise.js"
-	},
+	},	
 	{
 		"title": "17-initial-particles-attempt",
 		"sketch": "17-initial-particles-attempt.js"
@@ -74,19 +77,22 @@
 	{
 		"title": "18-perlin-flow-field",
 		"sketch": "18-perlin-flow-field.js",
-		"datgui": true
+		"datgui": true,
+		"fav": true
 	},
 	{
 		"title": "19-maurer-rose",
-		"sketch": "19-maurer-rose.js"
+		"sketch": "19-maurer-rose.js",
+		"fav": true
 	},
 	{
 		"title": "20-atan",
 		"sketch": "20-atan.js"
-	},
+	},	
 	{
-		"title": "21-squares",
-		"sketch": "21-squares.js"
+		"title": "21-outofthebox",
+		"sketch": "21-outofthebox.js",
+		"fav": true
 	},
 	{
 		"title": "22-crisscross",

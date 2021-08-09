@@ -36,9 +36,7 @@ function draw() {
 	let space = size / numSquares
 	let side = space * random(0.8, 1)
 
-
 	translate((width - size) / 2, (height - size) / 2)
-
 
 	if (0.5 - Math.random() > 0) {
 		styleOne(size, palette, side, space, numSquares)

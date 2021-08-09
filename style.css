@@ -1,5 +1,6 @@
 :root {
 	--btn: #3a0ca3;
+	--accent: #D72483;
 }
 
 body,
@@ -21,10 +22,15 @@ ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	font-size: 1.2rem;
 }
 
 ul li {
-	/* margin-bottom: 1rem; */
+	margin-bottom: 0.5rem;
+}
+
+ul.experiments-list li span.fav {
+	color: var(--accent);
 }
 
 .btn,
@@ -71,4 +77,12 @@ button:focus {
 	background-color: white;
 	color: black;
 	border: 2px solid black;
+}
+
+a {
+	color: black;
+	text-decoration: underline;
+}
+a:hover, a:focus {
+	color: var(--btn);
 }

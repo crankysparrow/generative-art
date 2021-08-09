@@ -28,8 +28,6 @@ function setup() {
 
 	d = 103 + 0.01 * Math.E
 	fill(0)
-	text('d: ' + d, 10, 20)
-	text('n: ' + numer + '/' + denom, 10, 60)
 
 	// text('d: ', d, +' n: ' + n, 10, 20)
 	noFill()
@@ -60,8 +58,6 @@ function draw() {
 		prevX = x
 		prevY = y
 	}
-
-	fr.html(floor(frameRate()))
 }
 
 function easeInCubic(x) {

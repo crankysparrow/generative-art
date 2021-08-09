@@ -11,12 +11,18 @@
 </head>
 <body class="index-list">
 
-    <ul>
-        {% for experiment in experiments -%}
+    <h1>Generative Art Experiments</h1>
+    <p>explorations in generative art & <a href="https://p5js.org/" target="_blank">p5.js</a>.</p>
+    <p>many of these are in messy or unfinished form. some are just snippets i've saved for my own reference.</p>
+    <ul class="experiments-list">
+        {% for experiment in experiments %}
         <li>
             <a href='experiments/{{ experiment.title }}'>{{ experiment.title }}</a>
+            {% if experiment.fav -%} 
+                <span class="fav">*</span>
+            {% endif %}
         </li>
-        {% endfor -%}
+        {% endfor %}
     </ul>
     
     <style>

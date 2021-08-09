@@ -1,14 +1,8 @@
-// var inc = 0.03
-// var zInc = 0.003
-// var magnitude = 0.5
 var scl = 5
 var zoff = 0
-// var cols, rows
 var particles = []
 var flowfield
 var buttonObj
-
-var fr
 
 function FlowField() {
 	this.zInc = 0.003
@@ -31,7 +25,6 @@ function FlowField() {
 				var v = p5.Vector.fromAngle(angle)
 				v.setMag(this.magnitude)
 				this.field[index] = v
-				// drawVector(v, x, y)
 			}
 		}
 	}
@@ -56,7 +49,8 @@ function setup() {
 
 	background(0)
 
-	fr = createP('')
+	let inspiration = createDiv(`inspiration from <a href="https://thecodingtrain.com/CodingChallenges/024-perlinnoiseflowfield.html" target="_blank">the coding train</a>`)
+	inspiration.style('margin', '2rem')
 
 	for (let i = 0; i < 1000; i++) {
 		particles[i] = new Particle()
@@ -82,8 +76,6 @@ function draw() {
 		particles[i].show()
 		particles[i].edges()
 	}
-
-	fr.html(floor(frameRate()))
 }
 
 function Particle() {

@@ -1,8 +1,6 @@
 
 const PALETTE = [ '#12d292', '#65198f', '#C874D9', '#3FFCEA' ];
 
-
-
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   angleMode(DEGREES);
@@ -12,11 +10,16 @@ function setup() {
   noLoop();
 }
 
+function mouseClicked() {
+  redraw()
+}
+
 function windowResized() {
   resizeCanvas(window.innerWidth, window.innerHeight);
 }
 
 function draw() {
+  background(255)
   strokeWeight(2);
 
   let m = min(width, height);
