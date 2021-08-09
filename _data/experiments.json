@@ -33,7 +33,8 @@
 	{
 		"title": "08-recursive-irregular-triangles",
 		"sketch": "08-recursive-irregular-triangles.js",
-		"datgui": true
+		"datgui": true,
+		"fav": true
 	},
 	{
 		"title": "09-spirograph",
