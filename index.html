@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generative Art Experiments</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{{ 'style.css' | url }}" />
 </head>
 <body class="index-list">
 
@@ -16,8 +16,9 @@
     <p>many of these are in messy or unfinished form. some are just snippets i've saved for my own reference.</p>
     <ul class="experiments-list">
         {% for experiment in experiments %}
+        {% assign experimentUrl = '/experiments/' + experiment.title %}
         <li>
-            <a href='experiments/{{ experiment.title }}'>{{ experiment.title }}</a>
+            <a href="{{ '/experiments/' | append: experiment.title | url }}">{{ experiment.title }}</a>
             {% if experiment.fav -%} 
                 <span class="fav">*</span>
             {% endif %}
