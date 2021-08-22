@@ -98,5 +98,9 @@
 	{
 		"title": "22-arcs",
 		"sketch": "22-arcs.js"
+	},
+	{
+		"title": "23-drawing",
+		"sketch": "23-drawing.js"
 	}
 ]
