@@ -1,31 +1,29 @@
-const size = 500
-let middle
-let count = 20
-let arcs = []
-let n = 0.1
-let lenStep = 0.01
+const step = 20
 
-let step = size / count
+let size
+let middle
+let arcs = []
+let lenStep = 0.01
 
 let palette = getColors('https://coolors.co/ffc857-e9724c-c5283d-255f85')
 let bg = '#481d24'
 
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight)
+	size = min(width, height) - 100
 	middle = createVector(width / 2, height / 2)
 
 	for (let i = step; i < size; i += step) {
-		let arcLength = random(0.01, PI * 1.95)
-		let arcStart = random(0, PI * 2)
 		arcs.push({
 			size: i,
-			start: arcStart,
-			current: arcStart,
-			len: arcLength,
+			start: random(0, PI * 2),
+			current: this.start,
+			len: random(0.01, PI * 1.95),
 			speed: random(0.1, 0.2) * random([-1, 1]),
 			up: true,
 			lenStep: random(0.0001, 0.01),
 			col: random(palette),
+			alpha: 1.0,
 		})
 	}
 }
@@ -41,28 +39,23 @@ function draw() {
 	noFill()
 	arcs.forEach((arcObj, i) => {
 		arcObj.current = arcObj.start + (arcObj.speed * millis()) / 1000
-		if (arcObj.up) {
-			arcObj.len += arcObj.lenStep
-			arcObj.start -= arcObj.lenStep
-			if (arcObj.len > PI * 1.99) arcObj.up = false
-		} else {
-			arcObj.len -= arcObj.lenStep
-			arcObj.start += arcObj.lenStep
-			if (arcObj.len < 0.1) arcObj.up = true
-		}
+		arcObj.len += arcObj.lenStep
+
+		// opacity is zero when the arc is a full circle (PI * 2)
+		// y = sin(x-PI/2) + 1 in grapher app for a visualization !
+		arcA = sin(arcObj.len - PI / 2) + 1
+		arcObj.alpha = arcA * 255
+
 		drawArc(arcObj)
 	})
 }
 
-function mouseClicked() {
-	redraw()
-}
-
 function drawArc(arcObj) {
-	let { size, start, len, col, current } = arcObj
+	let { size, start, len, col, current, alpha } = arcObj
 
-	stroke(col)
-
+	let arcCol = color(col)
+	arcCol.setAlpha(alpha)
+	stroke(arcCol)
 	arc(middle.x, middle.y, size, size, current, current + len)
 }
 
