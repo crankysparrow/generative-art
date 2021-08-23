@@ -102,5 +102,15 @@
 	{
 		"title": "23-drawing",
 		"sketch": "23-drawing.js"
+	},
+	{
+		"title": "24-recursive-shapes",
+		"sketch": "24-recursive-shapes.js",
+		"datgui": true
+	},
+	{
+		"title": "25-recursive-shapes-mod",
+		"sketch": "25-recursive-shapes-mod.js",
+		"datgui": true
 	}
 ]
