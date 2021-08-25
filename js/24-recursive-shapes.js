@@ -12,13 +12,17 @@ function draw() {
 	blendMode(BLEND)
 	background(0)
 	stroke('#fff')
-	strokeWeight(4)
+	strokeWeight(3)
 	noFill()
-	strokeCap(ROUND)
+	strokeJoin(ROUND)
 
 	let n = floor(random(4, 7))
 
 	recursiveShape(n, width / 2, height / 2, height / 3, 0)
+}
+
+function mousePressed() {
+	redraw()
 }
 
 function recursiveShape(n, x, y, size, angle) {

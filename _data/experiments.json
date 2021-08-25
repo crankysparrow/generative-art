@@ -112,5 +112,9 @@
 		"title": "25-recursive-shapes-mod",
 		"sketch": "25-recursive-shapes-mod.js",
 		"datgui": true
+	},
+	{
+		"title": "26-grid-noise",
+		"sketch": "26-grid-noise.js"
 	}
 ]
