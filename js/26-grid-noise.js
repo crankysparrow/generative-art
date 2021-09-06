@@ -1,3 +1,7 @@
+// inspiration: https://observablehq.com/@motiondesign_01/loop-ii
+// creating patterns
+// using noise to modify the pattern and maintain some consistency across multiple axes
+
 let sketchSize = 0.8
 let cSize = 58
 let xInt = 60
