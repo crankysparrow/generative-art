@@ -116,5 +116,13 @@
 	{
 		"title": "26-grid-noise",
 		"sketch": "26-grid-noise.js"
+	},
+	{
+		"title": "27-random-walk",
+		"sketch": "27-random-walk.js"
+	},
+	{
+		"title": "28-vectors",
+		"sketch": "28-vectors.js"
 	}
 ]
