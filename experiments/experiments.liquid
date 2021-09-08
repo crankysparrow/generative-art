@@ -19,7 +19,11 @@ permalink: "experiments/{{ experiment.title | slug  }}/index.html"
 </head>
 <body class="{{ experiment.title | prepend: 'e-' }}">
 
-    <a class="back btn" href="{{ '/' | url }}">back</button>
+    <main>
+
+        <a class="back btn" href="{{ '/' | url }}">back</a>
+
+    </main>
 
     {% if experiment.datgui %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.0-0/dat.gui.min.js"></script>
