@@ -2,11 +2,6 @@ let seed = 1
 let m
 
 function setup() {
-	let sheet = window.document.styleSheets[0]
-	sheet.insertRule(
-		'main {display: flex; align-items: center; justify-content: center;}',
-		sheet.cssRules.length
-	)
 	m = min(window.innerWidth, window.innerHeight)
 	createCanvas(window.innerWidth, window.innerHeight)
 
