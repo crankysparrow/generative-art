@@ -124,5 +124,9 @@
 	{
 		"title": "28-happy-accidents",
 		"sketch": "28-happy-accidents.js"
+	},
+	{
+		"title": "29-truchet",
+		"sketch": "29-truchet.js"
 	}
 ]
