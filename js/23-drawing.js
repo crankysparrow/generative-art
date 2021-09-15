@@ -11,7 +11,7 @@ function setup() {
 	rectMode(CENTER)
 	background(color('hsl(200, 20%, 10%)'))
 	strokeWeight(10)
-	frameRate(20)
+	frameRate(30)
 
 	s = color('hsl(200, 80%, 20%)')
 	f = '#fff'
@@ -22,7 +22,7 @@ function setup() {
 function draw() {
 	stroke(s)
 	fill(f)
-	rect(x, y, 50, sin(frameCount * 0.5) * h)
+	rect(x, y, 50, sin(frameCount * 0.4) * h)
 
 	x += 60
 
