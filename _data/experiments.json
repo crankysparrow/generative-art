@@ -97,7 +97,8 @@
 	},
 	{
 		"title": "22-arcs",
-		"sketch": "22-arcs.js"
+		"sketch": "22-arcs.js",
+		"fav": true
 	},
 	{
 		"title": "23-drawing",
@@ -106,12 +107,14 @@
 	{
 		"title": "24-recursive-shapes",
 		"sketch": "24-recursive-shapes.js",
-		"datgui": true
+		"datgui": true,
+		"fav": true
 	},
 	{
 		"title": "25-recursive-shapes-mod",
 		"sketch": "25-recursive-shapes-mod.js",
-		"datgui": true
+		"datgui": true,
+		"fav": true
 	},
 	{
 		"title": "26-grid-noise",
@@ -119,14 +122,20 @@
 	},
 	{
 		"title": "27-random-walk",
-		"sketch": "27-random-walk.js"
+		"sketch": "27-random-walk.js",
+		"fav": true
 	},
 	{
 		"title": "28-happy-accidents",
-		"sketch": "28-happy-accidents.js"
+		"sketch": "28-happy-accidents.js",
+		"fav": true
 	},
 	{
 		"title": "29-truchet",
 		"sketch": "29-truchet.js"
+	},
+	{
+		"title": "30-wang-tiles",
+		"sketch": "30-wang-tiles.js"
 	}
 ]
