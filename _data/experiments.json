@@ -137,5 +137,9 @@
 	{
 		"title": "30-wang-tiles",
 		"sketch": "30-wang-tiles.js"
+	},
+	{
+		"title": "31-chains",
+		"sketch": "31-chains.js"
 	}
 ]
