@@ -131,8 +131,8 @@
 		"fav": true
 	},
 	{
-		"title": "29-truchet",
-		"sketch": "29-truchet.js"
+		"title": "29-truchet-smith-tiles",
+		"sketch": "29-truchet-smith-tiles.js"
 	},
 	{
 		"title": "30-wang-tiles",
@@ -141,5 +141,9 @@
 	{
 		"title": "31-chains",
 		"sketch": "31-chains.js"
+	},
+	{
+		"title": "32-truchet-tiles-reflected",
+		"sketch": "32-truchet-tiles-reflected.js"
 	}
 ]
