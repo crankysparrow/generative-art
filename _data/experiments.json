@@ -39,7 +39,8 @@
 	{
 		"title": "09-spirograph",
 		"sketch": "09-spirograph.js",
-		"datgui": true
+		"datgui": true,
+		"fav": true
 	},
 	{
 		"title": "10-boxlines-animate",
@@ -136,7 +137,8 @@
 	},
 	{
 		"title": "30-wang-tiles",
-		"sketch": "30-wang-tiles.js"
+		"sketch": "30-wang-tiles.js",
+		"fav": true
 	},
 	{
 		"title": "31-chains",
@@ -144,6 +146,7 @@
 	},
 	{
 		"title": "32-truchet-tiles-reflected",
-		"sketch": "32-truchet-tiles-reflected.js"
+		"sketch": "32-truchet-tiles-reflected.js",
+		"fav": true
 	}
 ]
