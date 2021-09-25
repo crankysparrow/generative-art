@@ -148,5 +148,11 @@
 		"title": "32-truchet-tiles-reflected",
 		"sketch": "32-truchet-tiles-reflected.js",
 		"fav": true
+	},
+	{
+		"title": "33-sinewaves-forever",
+		"sketch": "33-sinewaves-forever.js",
+		"fav": true,
+		"datgui": true
 	}
 ]
