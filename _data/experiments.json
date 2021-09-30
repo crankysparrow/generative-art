@@ -154,5 +154,14 @@
 		"sketch": "33-sinewaves-forever.js",
 		"fav": true,
 		"datgui": true
+	},
+	{
+		"title": "34-squares",
+		"sketch": "34-squares.js",
+		"fav": true
+	},
+	{
+		"title": "35-fold",
+		"sketch": "35-fold.js"
 	}
 ]

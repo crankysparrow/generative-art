@@ -4,19 +4,22 @@ let inc = 50
 let count = 0
 let points = []
 let n = 16
-let xMod = 1200
-let yMod = 850
-
+let xMod
+let yMod
+let m
 
 function setup() {
-	createCanvas(800, 800)
+	createCanvas(window.innerWidth, window.innerHeight)
 
 	colorMode(HSB, 100)
 
-	topShape = random(height * 0.05, height * 0.25)
-	bottomShape = random(height * 0.65, height * 0.95)
+	topShape = random(height * 0.15, height * 0.25)
+	bottomShape = random(height * 0.65, height * 0.85)
+	xMod = width * 1.1
+	yMod = height * 0.5
 
-	inc = (width - 40) / n
+	m = min(width, height) * 0.8
+	inc = m / n
 
 	let i = 0
 	while (i < n) {
@@ -25,14 +28,12 @@ function setup() {
 		points.push(createVector(x, y))
 		i++
 	}
-
 }
 
 function draw() {
-	translate(40, 0)
-	background(0)
+	translate((width - m) / 2, (height - m) / 2)
+	background(255)
 
-	// fill(255, 100)
 	noFill()
 	stroke(255, 10)
 	strokeWeight(2)
@@ -54,8 +55,15 @@ function draw() {
 	// fill(255, 100)
 	let i = 1
 	while (i < pointsR.length - 2) {
-		fill( i * 5, 100, 100, 20)
-		triangle(pointsR[i].x, pointsR[i].y, pointsR[i+1].x, pointsR[i+1].y, pointsR[i+2].x, pointsR[i+2].y)
+		fill(i * 5, 100, 100, 50)
+		triangle(
+			pointsR[i].x,
+			pointsR[i].y,
+			pointsR[i + 1].x,
+			pointsR[i + 1].y,
+			pointsR[i + 2].x,
+			pointsR[i + 2].y
+		)
 		i += 1
 	}
 }

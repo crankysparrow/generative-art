@@ -1,71 +1,61 @@
-let url = 'https://coolors.co/241e4e-960200-ce6c47-ffd046-eadaa2'
-let gui
-let rotationAngle = 0
-let extraModify
-let P
+let topShape
+let bottomShape
+let inc = 50
+let count = 0
+let points = []
+let n = 16
+let xMod = 1200
+let yMod = 850
 
-let formVars = {
-	angleModify: 3,
-	angle: 0,
-	stretch: 95,
-	radius: 100,
-	startPIs: 0,
-}
-
-function paletteFromUrl(url) {
-	return url
-		.split('coolors.co/')
-		.slice(1)[0]
-		.split('-')
-		.map((c) => '#' + c)
-}
-
-let palette = paletteFromUrl(url)
 
 function setup() {
-	createCanvas(window.innerWidth, window.innerHeight)
-	let m = min(width, height)
+	createCanvas(800, 800)
 
-	formVars.radius = floor(random(m * 0.2, m * 0.3))
-	formVars.stretch = formVars.radius * random(0.5, 1)
+	colorMode(HSB, 100)
 
-	formVars.angleModify = floor(random(2, 7))
-	// formVars.stretch = floor(random(20, 140))
-	// formVars.stretch = m * 0.1
+	topShape = random(height * 0.05, height * 0.25)
+	bottomShape = random(height * 0.65, height * 0.95)
+
+	inc = (width - 40) / n
+
+	let i = 0
+	while (i < n) {
+		let x = i * inc
+		let y = i % 2 == 1 ? topShape : bottomShape
+		points.push(createVector(x, y))
+		i++
+	}
+
 }
 
 function draw() {
-	let col = palette[0]
-	background(col)
+	translate(40, 0)
+	background(0)
 
-	strokeWeight(2)
+	// fill(255, 100)
 	noFill()
+	stroke(255, 10)
+	strokeWeight(2)
+	strokeJoin(ROUND)
 
-	extraModify = sin(formVars.angle)
-	formVars.startPIs = (abs(sin(formVars.angle)) - 1) / 2
-	formVars.angle += 0.01
-
-	translate(width / 2, height / 2)
-
-	let rot = sin(rotationAngle)
-	rotate(rot * TWO_PI * -1)
-	rotationAngle += 0.001
-	stroke(lerpColor(color(palette[1]), color(palette[2]), rot))
-
-	makeForm(0, 0, extraModify)
-}
-
-function makeForm(x, y, extraModify) {
-	beginShape()
-	for (let i = PI * formVars.startPIs - 0.02; i <= TWO_PI; i += 0.01) {
-		let len = sin(i * (formVars.angleModify + extraModify)) * formVars.stretch
-		let v = createVector(cos(i), sin(i))
-		v = v.normalize().mult(formVars.radius).add(len)
-		curveVertex(v.x, v.y)
+	count++
+	if (mouseIsPressed) {
+		count++
 	}
-	endShape()
-}
 
-function windowResized() {
-	resizeCanvas(window.innerWidth, window.innerHeight)
+	let pointsR = []
+	for (let i = 0; i < points.length; i++) {
+		let newV = points[i].copy()
+		newV.x += noise(newV.x * 0.5, count * 0.003) * xMod - xMod / 2
+		newV.y += noise(i * 0.05, count * 0.002) * yMod - yMod / 2
+		pointsR.push(newV)
+	}
+
+	// fill(255, 100)
+	let i = 1
+	while (i < pointsR.length - 2) {
+		fill( i * 5, 100, 100, 20)
+		triangle(pointsR[i].x, pointsR[i].y, pointsR[i+1].x, pointsR[i+1].y, pointsR[i+2].x, pointsR[i+2].y)
+		i += 1
+	}
 }

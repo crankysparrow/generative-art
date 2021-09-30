@@ -1,16 +1,13 @@
-let url = 'https://coolors.co/241e4e-960200-ce6c47-ffd046-eadaa2'
-let gui
-let rotationAngle = 0
-let extraModify
-let P
+let urls = [
+	'https://coolors.co/241e4e-960200-ce6c47-ffd046-eadaa2',
+	'https://coolors.co/03b5aa-037971-023436-00bfb3',
+	'https://coolors.co/241e4e-960200-fffbff-b288c0',
+	'https://coolors.co/481620-cc3f0c-023436-00bfb3',
+]
 
-let formVars = {
-	angleModify: 3,
-	angle: 0,
-	stretch: 95,
-	radius: 100,
-	startPIs: 0,
-}
+let palette
+let gui
+let forms = []
 
 function paletteFromUrl(url) {
 	return url
@@ -20,52 +17,97 @@ function paletteFromUrl(url) {
 		.map((c) => '#' + c)
 }
 
-let palette = paletteFromUrl(url)
-
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight)
-	let m = min(width, height)
 
-	formVars.radius = floor(random(m * 0.2, m * 0.3))
-	formVars.stretch = formVars.radius * random(0.5, 1)
-
-	formVars.angleModify = floor(random(2, 7))
-	// formVars.stretch = floor(random(20, 140))
-	// formVars.stretch = m * 0.1
+	createForms()
 }
 
 function draw() {
 	let col = palette[0]
 	background(col)
 
-	strokeWeight(2)
+	strokeWeight(3)
 	noFill()
 
-	extraModify = sin(formVars.angle)
-	formVars.startPIs = (abs(sin(formVars.angle)) - 1) / 2
-	formVars.angle += 0.01
-
 	translate(width / 2, height / 2)
+	shearX((mouseX / width - 0.5) * 0.5)
+	shearY((mouseY / height - 0.5) * 0.5)
 
-	let rot = sin(rotationAngle)
-	rotate(rot * TWO_PI * -1)
-	rotationAngle += 0.001
-	stroke(lerpColor(color(palette[1]), color(palette[2]), rot))
-
-	makeForm(0, 0, extraModify)
+	for (let i = 0; i < forms.length; i++) {
+		forms[i].update()
+		forms[i].show()
+	}
 }
 
-function makeForm(x, y, extraModify) {
-	beginShape()
-	for (let i = PI * formVars.startPIs - 0.02; i <= TWO_PI; i += 0.01) {
-		let len = sin(i * (formVars.angleModify + extraModify)) * formVars.stretch
-		let v = createVector(cos(i), sin(i))
-		v = v.normalize().mult(formVars.radius).add(len)
-		curveVertex(v.x, v.y)
+function mousePressed() {
+	createForms()
+}
+
+function createForms() {
+	palette = paletteFromUrl(random(urls))
+	palette = shuffle(palette)
+	forms = []
+	let m = min(width, height)
+
+	let angleModify = floor(random(2, 6))
+	let stretchFactor = random(0.5, 1)
+	let radius = floor(random(m * 0.2, m * 0.3))
+	let formCount = floor(random(1, 6))
+
+	for (let i = 0; i < formCount; i++) {
+		forms.push(new Form(m, 0, angleModify, stretchFactor, radius + 5 * i, 0, i * 0.3))
 	}
-	endShape()
 }
 
 function windowResized() {
 	resizeCanvas(window.innerWidth, window.innerHeight)
+}
+
+class Form {
+	constructor(m, angle, angleModify, stretchFactor, radius, translateStart, colorStart) {
+		this.angleModify = angleModify
+		this.angle = angle
+		this.radius = radius ? radius : floor(random(m * 0.2, m * 0.3))
+		this.stretch = this.radius * stretchFactor
+		this.startPIs = 0
+		this.rotationAngle = 0
+		this.rot = 0
+		this.colorAngle = colorStart ? colorStart : 0
+		this.col = 0
+		this.extraModify = 0
+		this.translateStart = translateStart ? translateStart : 0
+	}
+
+	update() {
+		this.extraModify = sin(this.angle)
+		this.startPIs = (abs(sin(this.angle)) - 1) / 2
+		this.angle += 0.01
+
+		this.rot = sin(this.rotationAngle)
+		this.rotationAngle += 0.001
+
+		this.col = sin(this.colorAngle) * 0.5 + 0.5
+		this.colorAngle += 0.005
+	}
+
+	show() {
+		push()
+		stroke(lerpColor(color(palette[1]), color(palette[2]), this.col))
+		rotate(this.rot * TWO_PI * -1)
+
+		beginShape()
+		for (
+			let i = PI * this.startPIs - 0.02 + this.translateStart;
+			i <= TWO_PI + this.translateStart;
+			i += 0.01
+		) {
+			let len = sin(i * (this.angleModify + this.extraModify)) * this.stretch
+			let v = createVector(cos(i), sin(i))
+			v = v.normalize().mult(this.radius).add(len)
+			curveVertex(v.x, v.y)
+		}
+		endShape()
+		pop()
+	}
 }
