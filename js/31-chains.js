@@ -1,9 +1,7 @@
 // https://p5js.org/examples/interaction-follow-2.html
 let len
-
-let pointOne, pointTwo
 let points = []
-let n = 10
+let n = 8
 
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight)
@@ -16,7 +14,7 @@ function setup() {
 
 	let i = 0
 	while (i < n) {
-		points.push(createVector(midX, midY))
+		points.push(createVector(random(width), random(height)))
 		i++
 	}
 
@@ -30,8 +28,6 @@ function draw() {
 		if (i === 0) {
 			if (mouseX && mouseY) {
 				moveSegment(mouseX, mouseY, i)
-			} else {
-				moveSegment(width / 2, height / 2, 0)
 			}
 		} else {
 			moveSegment(points[i - 1].x, points[i - 1].y, i)
