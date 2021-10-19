@@ -163,5 +163,9 @@
 	{
 		"title": "35-fold",
 		"sketch": "35-fold.js"
+	},
+	{
+		"title": "36-scaledshapes",
+		"sketch": "36-scaledshapes.js"
 	}
 ]
