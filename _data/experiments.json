@@ -167,5 +167,17 @@
 	{
 		"title": "36-scaledshapes",
 		"sketch": "36-scaledshapes.js"
+	},
+	{
+		"title": "37-bezier",
+		"sketch": "37-bezier.js"
+	},
+	{
+		"title": "38-gravitation",
+		"sketch": "38-gravitation.js"
+	},
+	{
+		"title": "39-woo-i-made-a-shader",
+		"sketch": "39-woo-i-made-a-shader.js"
 	}
 ]

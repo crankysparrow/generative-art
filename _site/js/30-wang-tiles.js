@@ -19,6 +19,13 @@ function draw() {
 
 	// tileAlgorithm()
 	anotherOne()
+
+	// for (let i = 0; i < 8; i++) {
+	// 	tiles[i](i * 120, 10)
+	// }
+	// for (let i = 0; i < 8; i++) {
+	// 	tiles[i + 8](i * 120, 120)
+	// }
 }
 
 function anotherOne() {
