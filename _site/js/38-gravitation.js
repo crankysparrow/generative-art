@@ -107,8 +107,8 @@ function setup() {
 	a2 = new Attractor(random(width), random(height), 100)
 	a3 = new Attractor(random(width), random(height), 100)
 
-	a1.show()
-	a2.show()
+	// a1.show()
+	// a2.show()
 
 	background(0)
 

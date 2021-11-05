@@ -166,7 +166,8 @@
 	},
 	{
 		"title": "36-scaledshapes",
-		"sketch": "36-scaledshapes.js"
+		"sketch": "36-scaledshapes.js",
+		"fav": true
 	},
 	{
 		"title": "37-bezier",
@@ -174,10 +175,12 @@
 	},
 	{
 		"title": "38-gravitation",
-		"sketch": "38-gravitation.js"
+		"sketch": "38-gravitation.js",
+		"fav": true
 	},
 	{
 		"title": "39-woo-i-made-a-shader",
-		"sketch": "39-woo-i-made-a-shader.js"
+		"sketch": "39-woo-i-made-a-shader.js",
+		"fav": true
 	}
 ]
