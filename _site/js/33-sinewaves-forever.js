@@ -97,11 +97,7 @@ class Form {
 		rotate(this.rot * TWO_PI * -1)
 
 		beginShape()
-		for (
-			let i = PI * this.startPIs - 0.02 + this.translateStart;
-			i <= TWO_PI + this.translateStart;
-			i += 0.01
-		) {
+		for (let i = PI * this.startPIs - 0.02 + this.translateStart; i <= TWO_PI + this.translateStart; i += 0.01) {
 			let len = sin(i * (this.angleModify + this.extraModify)) * this.stretch
 			let v = createVector(cos(i), sin(i))
 			v = v.normalize().mult(this.radius).add(len)

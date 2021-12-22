@@ -182,5 +182,9 @@
 		"title": "39-woo-i-made-a-shader",
 		"sketch": "39-woo-i-made-a-shader.js",
 		"fav": true
+	},
+	{
+		"title": "40-circle-sines-gif-loop",
+		"sketch": "40-circle-sines-gif-loop.js"
 	}
 ]
