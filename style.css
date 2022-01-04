@@ -1,6 +1,7 @@
 :root {
 	--btn: #3a0ca3;
 	--accent: #d72483;
+	--border: #a499b3;
 }
 
 body,
@@ -10,6 +11,17 @@ html {
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
 }
 
 .dg ul {
@@ -105,4 +117,20 @@ a {
 a:hover,
 a:focus {
 	color: var(--btn);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 0 0 0.5rem 0;
+}
+
+input[type='text'] {
+	width: 100%;
+}
+
+label {
+	margin: 5px 0;
 }
